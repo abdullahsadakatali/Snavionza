@@ -70,7 +70,7 @@ In your Netlify site dashboard, go to **Site configuration → Environment varia
 | `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase anon key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Your Supabase service role key |
-| `NEXT_PUBLIC_SITE_URL` | `https://www.snavionza.com` |
+| `NEXT_PUBLIC_SITE_URL` | `https://snavionza.netlify.app` |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Your GA4 ID (e.g. `G-XXXXXXXXXX`) |
 | `MAILERLITE_API_KEY` | Your MailerLite API key (when ready) |
 
@@ -116,12 +116,12 @@ CNAME   www     your-site.netlify.app
 ## Step 9: Set Up Google Search Console
 
 1. Go to [search.google.com/search-console](https://search.google.com/search-console)
-2. Add property → URL prefix → `https://www.snavionza.com`
+2. Add property → URL prefix → `https://snavionza.netlify.app`
 3. Verify ownership using the **HTML tag** method:
    - Copy the verification meta tag content value
    - In `src/app/layout.tsx`, replace `YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_ID` with your actual verification code
    - Redeploy
-4. Submit your sitemap: `https://www.snavionza.com/sitemap.xml`
+4. Submit your sitemap: `https://snavionza.netlify.app/sitemap.xml`
 
 ---
 

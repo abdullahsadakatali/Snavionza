@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.snavionza.com';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://snavionza.netlify.app';
 
 const staticPages: MetadataRoute.Sitemap = [
   { url: BASE_URL, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },

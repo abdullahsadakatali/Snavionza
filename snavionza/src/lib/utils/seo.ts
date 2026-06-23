@@ -1,5 +1,5 @@
 const SITE_NAME = 'Snavionza';
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.snavionza.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://snavionza.netlify.app';
 const SITE_DESCRIPTION = 'Your go-to source for AI tools, productivity software, automation guides, and creator resources. Helping creators work smarter with AI.';
 
 export const siteConfig = {
