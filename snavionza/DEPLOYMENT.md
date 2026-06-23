@@ -57,7 +57,7 @@ git push -u origin main
 5. Configure build settings:
    - **Build command:** `npm run build`
    - **Publish directory:** `.next`
-   - **Node version:** `20`
+   - **Node version:** `22`
 
 ---
 
