@@ -4,12 +4,11 @@ import { useState } from 'react';
 import { Sparkles, ChevronDown, ChevronUp, Copy, Check } from 'lucide-react';
 
 interface AIDraftAssistantProps {
-  onApplyTitle?: (title: string) => void;
   onApplyOutline?: (outline: string) => void;
   onApplyMeta?: (meta: { title: string; description: string }) => void;
 }
 
-function generateOutline(topic: string, category: string): string {
+function generateOutline(topic: string): string {
   const templates: Record<string, string[]> = {
     review: [
       `# [Tool Name] Review: Is It Worth It in [Year]?`,
@@ -59,7 +58,7 @@ function generateOutline(topic: string, category: string): string {
   return (templates[type] || templates.guide).join('');
 }
 
-export default function AIDraftAssistant({ onApplyTitle, onApplyOutline, onApplyMeta }: AIDraftAssistantProps) {
+export default function AIDraftAssistant({ onApplyOutline, onApplyMeta }: AIDraftAssistantProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [topic, setTopic] = useState('');
   const [category, setCategory] = useState('AI Tool Reviews');
@@ -68,7 +67,7 @@ export default function AIDraftAssistant({ onApplyTitle, onApplyOutline, onApply
 
   const generate = () => {
     if (!topic.trim()) return;
-    const outline = generateOutline(topic, category);
+    const outline = generateOutline(topic);
     const metaTitle = `${topic} | Snavionza`;
     const metaDesc = `Discover everything you need to know about ${topic.toLowerCase()}. Expert analysis, honest reviews, and practical recommendations for creators and professionals.`;
     setGenerated({ outline, metaTitle, metaDesc });

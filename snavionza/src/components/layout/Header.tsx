@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, Search } from 'lucide-react';
 import MobileMenu from './MobileMenu';
 
 const navLinks = [

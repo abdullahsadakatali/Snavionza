@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
@@ -109,7 +110,7 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="text-center text-xs text-gray-400 mt-6">
-          Admin access only. <a href="/" className="text-blue-600 hover:underline">Return to site →</a>
+          Admin access only. <Link href="/" className="text-blue-600 hover:underline">Return to site →</Link>
         </p>
       </div>
     </div>

@@ -24,10 +24,13 @@ export default function CategoriesPage() {
     setCategories((data as Category[]) || []);
   };
 
-  useEffect(() => { fetchCategories(); }, []);
-
-  // Auto-slug from name
-  useEffect(() => { setNewSlug(generateSlug(newName)); }, [newName]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchCategories();
+    }, 0);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,7 +90,10 @@ export default function CategoriesPage() {
               <input
                 type="text"
                 value={newName}
-                onChange={(e) => setNewName(e.target.value)}
+                onChange={(e) => {
+                  setNewName(e.target.value);
+                  setNewSlug(generateSlug(e.target.value));
+                }}
                 placeholder="AI Writing"
                 className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
               />

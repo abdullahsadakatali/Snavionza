@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Home, BookOpen, ArrowLeft } from 'lucide-react';
+import { Home, BookOpen } from 'lucide-react';
 
 export default function NotFound() {
   return (

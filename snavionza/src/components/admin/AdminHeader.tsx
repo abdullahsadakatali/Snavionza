@@ -2,7 +2,7 @@
 
 import type { User } from '@supabase/supabase-js';
 import Link from 'next/link';
-import { Plus, Bell } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 interface AdminHeaderProps {

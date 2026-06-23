@@ -6,7 +6,7 @@ import FeaturedArticle from '@/components/article/FeaturedArticle';
 import ArticleCard from '@/components/article/ArticleCard';
 import NewsletterHero from '@/components/newsletter/NewsletterHero';
 import SearchBar from '@/components/search/SearchBar';
-import { siteConfig, generateMetaTitle, generateMetaDescription } from '@/lib/utils/seo';
+import { siteConfig } from '@/lib/utils/seo';
 import { ArrowRight, BookOpen, Zap, TrendingUp, PenTool, Users, Briefcase } from 'lucide-react';
 
 export const metadata: Metadata = {

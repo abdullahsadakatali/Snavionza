@@ -27,7 +27,7 @@ export default function MediaLibraryPage() {
       const ext = file.name.split('.').pop();
       const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
 
-      const { data, error } = await supabase.storage
+      const { error } = await supabase.storage
         .from('article-images')
         .upload(fileName, file, { cacheControl: '3600', upsert: false });
 

@@ -26,8 +26,13 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    const timer = setTimeout(() => {
+      handleScroll();
+    }, 0);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, [handleScroll]);
 
   if (items.length === 0) return null;

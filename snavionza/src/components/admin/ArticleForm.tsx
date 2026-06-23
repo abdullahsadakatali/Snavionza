@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { Category, Post } from '@/lib/types';
@@ -9,7 +9,7 @@ import { calculateReadingTime } from '@/lib/utils/reading-time';
 import { createClient } from '@/lib/supabase/client';
 import SEOChecklist from '@/components/admin/SEOChecklist';
 import AIDraftAssistant from '@/components/admin/AIDraftAssistant';
-import { Save, Globe, FileText, Eye, EyeOff, Image as ImageIcon, Calendar, Clock } from 'lucide-react';
+import { Globe, FileText, Eye, EyeOff, Image as ImageIcon, Calendar, Clock } from 'lucide-react';
 import { format } from 'date-fns';
 
 const Editor = dynamic(() => import('@/components/admin/Editor'), { ssr: false });
@@ -40,12 +40,7 @@ export default function ArticleForm({ categories, initialData, mode }: ArticleFo
   const [showSEO, setShowSEO] = useState(false);
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
 
-  // Auto-generate slug from title
-  useEffect(() => {
-    if (!slugManuallyEdited && title) {
-      setSlug(generateSlug(title));
-    }
-  }, [title, slugManuallyEdited]);
+
 
   // Word count for SEO checklist
   const wordCount = content.replace(/<[^>]*>/g, '').trim().split(/\s+/).filter(Boolean).length;
@@ -156,7 +151,12 @@ export default function ArticleForm({ categories, initialData, mode }: ArticleFo
             <input
               type="text"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => {
+                setTitle(e.target.value);
+                if (!slugManuallyEdited) {
+                  setSlug(generateSlug(e.target.value));
+                }
+              }}
               placeholder="Article title..."
               className="w-full px-0 py-3 text-3xl font-bold text-gray-900 border-0 border-b-2 border-gray-200 focus:border-blue-500 focus:outline-none bg-transparent placeholder-gray-300"
             />

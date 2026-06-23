@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { Post } from '@/lib/types';
 import { generateTableOfContents } from '@/lib/utils/toc';
@@ -196,9 +197,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
               {/* Back to blog */}
               <div className="pt-2">
-                <a href="/blog" className="text-sm text-blue-600 hover:underline">
+                <Link href="/blog" className="text-sm text-blue-600 hover:underline">
                   ← Back to Blog
-                </a>
+                </Link>
               </div>
             </div>
           </aside>
